@@ -1,8 +1,9 @@
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { getActivitesAdmin } from "@/lib/queries/admin/activites";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { deleteActiviteAction, togglePublishActiviteAction } from "@/lib/actions/admin/activites";
-import { Plus, Pencil, Trash2, Eye, EyeOff } from "lucide-react";
+import { Plus, Pencil, Eye, EyeOff } from "lucide-react";
+import { DeleteForm } from "@/components/admin/DeleteForm";
 
 export default async function AdminActivitesPage({ searchParams }: { searchParams: Promise<{ search?: string; page?: string }> }) {
   await requireAdmin();
@@ -16,7 +17,7 @@ export default async function AdminActivitesPage({ searchParams }: { searchParam
           <h1 className="text-2xl font-extrabold text-[var(--color-on-surface)]">Activités</h1>
           <p className="text-sm text-[var(--color-on-surface-variant)]">{total} au total</p>
         </div>
-        <Link href={"/admin/activites/new" as "/"} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-secondary)] text-white font-bold text-sm hover:opacity-90">
+        <Link href={"/admin/activites/new"} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-secondary)] text-white font-bold text-sm hover:opacity-90">
           <Plus size={16} /> Nouvelle
         </Link>
       </div>
@@ -54,15 +55,13 @@ export default async function AdminActivitesPage({ searchParams }: { searchParam
                     </td>
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-2">
-                        <Link href={`/admin/activites/${act.id}/edit` as "/"} className="p-1.5 rounded-lg hover:bg-[var(--color-surface-container-low)] text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)]"><Pencil size={15} /></Link>
+                        <Link href={`/admin/activites/${act.id}/edit`} className="p-1.5 rounded-lg hover:bg-[var(--color-surface-container-low)] text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)]"><Pencil size={15} /></Link>
                         <form action={togglePublishActiviteAction.bind(null, act.id, !act.publie)}>
                           <button type="submit" className="p-1.5 rounded-lg hover:bg-[var(--color-surface-container-low)] text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)]">
                             {act.publie ? <EyeOff size={15} /> : <Eye size={15} />}
                           </button>
                         </form>
-                        <form action={deleteActiviteAction.bind(null, act.id)} onSubmit={(e) => { if (!confirm("Supprimer ?")) e.preventDefault(); }}>
-                          <button type="submit" className="p-1.5 rounded-lg hover:bg-red-50 text-[var(--color-on-surface-variant)] hover:text-red-600"><Trash2 size={15} /></button>
-                        </form>
+                        <DeleteForm action={deleteActiviteAction.bind(null, act.id)} />
                       </div>
                     </td>
                   </tr>

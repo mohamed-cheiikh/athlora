@@ -30,7 +30,15 @@
       "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/ar/evenements)",
       "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/ar/evenements/trail-des-falaises-mostaganem-2026)",
       "Bash(dir /b \"C:\\\\Users\\\\cheik\\\\Desktop\\\\athlora\")",
-      "Bash(npx playwright *)"
+      "Bash(npx playwright *)",
+      "Bash(echo \"PID=$!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/fr)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/admin/login)",
+      "Bash(curl -s -I http://localhost:3000/admin)",
+      "Bash(curl *)",
+      "Bash(xargs sed *)",
+      "Bash(pkill -f \"next dev\")"
     ]
   }
 }

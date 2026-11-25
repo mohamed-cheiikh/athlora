@@ -1,8 +1,9 @@
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { getEvenementsAdmin } from "@/lib/queries/admin/evenements";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { deleteEvenementAction, togglePublishEvenementAction } from "@/lib/actions/admin/evenements";
-import { Plus, Pencil, Trash2, Eye, EyeOff } from "lucide-react";
+import { Plus, Pencil, Eye, EyeOff } from "lucide-react";
+import { DeleteForm } from "@/components/admin/DeleteForm";
 
 export default async function AdminEvenementsPage({
   searchParams,
@@ -23,7 +24,7 @@ export default async function AdminEvenementsPage({
           <p className="text-sm text-[var(--color-on-surface-variant)]">{total} au total</p>
         </div>
         <Link
-          href={"/admin/evenements/new" as "/"}
+          href={"/admin/evenements/new"}
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--color-secondary)] text-white font-bold text-sm hover:opacity-90 transition-opacity"
         >
           <Plus size={16} />
@@ -82,14 +83,14 @@ export default async function AdminEvenementsPage({
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-2">
                         <Link
-                          href={`/admin/evenements/${ev.id}/edit` as "/"}
+                          href={`/admin/evenements/${ev.id}/edit`}
                           className="p-1.5 rounded-lg hover:bg-[var(--color-surface-container-low)] text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)]"
                           title="Modifier"
                         >
                           <Pencil size={15} />
                         </Link>
                         <TogglePublishButton id={ev.id} publie={ev.publie} />
-                        <DeleteButton id={ev.id} />
+                        <DeleteForm action={deleteEvenementAction.bind(null, ev.id)} />
                       </div>
                     </td>
                   </tr>
@@ -118,17 +119,3 @@ function TogglePublishButton({ id, publie }: { id: number; publie: boolean }) {
   );
 }
 
-function DeleteButton({ id }: { id: number }) {
-  const action = deleteEvenementAction.bind(null, id);
-  return (
-    <form action={action} onSubmit={(e) => { if (!confirm("Supprimer définitivement ?")) e.preventDefault(); }}>
-      <button
-        type="submit"
-        title="Supprimer"
-        className="p-1.5 rounded-lg hover:bg-red-50 text-[var(--color-on-surface-variant)] hover:text-red-600"
-      >
-        <Trash2 size={15} />
-      </button>
-    </form>
-  );
-}

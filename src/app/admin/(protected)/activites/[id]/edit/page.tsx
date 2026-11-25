@@ -2,7 +2,7 @@ import { requireAdmin } from "@/lib/auth/require-admin";
 import { getActiviteAdminById } from "@/lib/queries/admin/activites";
 import { ActiviteForm } from "@/components/admin/ActiviteForm";
 import { updateActiviteAction } from "@/lib/actions/admin/activites";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 
@@ -16,7 +16,7 @@ export default async function EditActivitePage({ params }: { params: Promise<{ i
 
   return (
     <div className="p-6 md:p-8 max-w-3xl">
-      <Link href={"/admin/activites" as "/"} className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)] mb-6">
+      <Link href={"/admin/activites"} className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)] mb-6">
         <ChevronLeft size={16} /> Activités
       </Link>
       <h1 className="text-2xl font-extrabold text-[var(--color-on-surface)] mb-8">

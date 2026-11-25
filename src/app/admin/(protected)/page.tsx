@@ -1,7 +1,7 @@
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { getDashboardStats, getRecentRequests } from "@/lib/queries/admin/dashboard";
 import { CalendarDays, Layers, Building2, InboxIcon, MessageSquare } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 
 export default async function AdminDashboardPage() {
   await requireAdmin();
@@ -34,7 +34,7 @@ export default async function AdminDashboardPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
         {cards.map(({ label, value, icon: Icon, href, color }) => (
-          <Link key={href} href={href as "/"} className="bg-white rounded-2xl border border-[var(--color-outline-variant)] p-4 flex flex-col gap-3 hover:shadow-sm transition-shadow">
+          <Link key={href} href={href} className="bg-white rounded-2xl border border-[var(--color-outline-variant)] p-4 flex flex-col gap-3 hover:shadow-sm transition-shadow">
             <div className={`w-10 h-10 rounded-xl ${color}/10 flex items-center justify-center`}>
               <Icon size={20} className={`${color.replace("bg-", "text-")}`} />
             </div>
@@ -50,7 +50,7 @@ export default async function AdminDashboardPage() {
       <div className="bg-white rounded-2xl border border-[var(--color-outline-variant)] overflow-hidden">
         <div className="px-6 py-4 border-b border-[var(--color-outline-variant)] flex items-center justify-between">
           <h2 className="font-extrabold text-[var(--color-on-surface)]">Demandes récentes</h2>
-          <Link href={"/admin/demandes" as "/"} className="text-sm font-bold text-[var(--color-secondary)] hover:underline">
+          <Link href={"/admin/demandes"} className="text-sm font-bold text-[var(--color-secondary)] hover:underline">
             Voir toutes →
           </Link>
         </div>

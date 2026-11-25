@@ -18,9 +18,10 @@ if (!nom || !email || !mdp) {
   process.exit(1);
 }
 
-const hash = await bcrypt.hash(mdp, 12);
+async function main() {
+  const hash = await bcrypt.hash(mdp, 12);
+  await db.insert(schema.usersAdmin).values({ nom, email, motDePasseHash: hash });
+  console.log(`✅ Admin créé : ${email}`);
+}
 
-await db.insert(schema.usersAdmin).values({ nom, email, motDePasseHash: hash });
-
-console.log(`✅ Admin créé : ${email}`);
-process.exit(0);
+main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });

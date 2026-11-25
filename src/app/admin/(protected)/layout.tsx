@@ -1,6 +1,6 @@
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { logoutAction } from "@/lib/actions/admin/logout";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import {
   LayoutDashboard, CalendarDays, Layers, Building2,
   InboxIcon, MessageSquare, Settings, LogOut,
@@ -38,7 +38,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           {NAV.map(({ label, href, icon: Icon }) => (
             <Link
               key={href}
-              href={href as "/"}
+              href={href}
               className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-white/70 hover:text-white hover:bg-white/10 transition-colors"
             >
               <Icon size={17} />
