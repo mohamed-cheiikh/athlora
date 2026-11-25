@@ -9,7 +9,15 @@ type SearchParams = { zone?: string; categorie?: string; page?: string };
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });
-  return { title: `${t("activitiesTitle")} | Athlora`, description: t("siteDescription") };
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  return {
+    title: `${t("activitiesTitle")} | Athlora`,
+    description: t("siteDescription"),
+    alternates: {
+      canonical: `${locale === "ar" ? `${base}/ar` : base}/activites`,
+      languages: { fr: `${base}/activites`, ar: `${base}/ar/activites`, "x-default": `${base}/activites` },
+    },
+  };
 }
 
 export default async function ActivitesPage({

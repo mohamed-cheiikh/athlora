@@ -10,7 +10,24 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const stay = await getHebergementBySlug(slug);
   if (!stay) return { title: "Hébergement introuvable" };
   const nom = locale === "ar" && stay.nomAr ? stay.nomAr : stay.nomFr;
-  return { title: `${nom} | Athlora` };
+  const description = locale === "ar" && stay.descriptionAr ? stay.descriptionAr : stay.descriptionFr;
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  const frUrl = `${base}/hebergements/${slug}`;
+  const arUrl = `${base}/ar/hebergements/${slug}`;
+  return {
+    title: `${nom} | Athlora`,
+    description: description.slice(0, 160),
+    openGraph: {
+      title: `${nom} | Athlora`,
+      description: description.slice(0, 160),
+      url: locale === "ar" ? arUrl : frUrl,
+      ...(stay.image ? { images: [{ url: stay.image, alt: nom }] } : {}),
+    },
+    alternates: {
+      canonical: locale === "ar" ? arUrl : frUrl,
+      languages: { fr: frUrl, ar: arUrl, "x-default": frUrl },
+    },
+  };
 }
 
 const AMENITY_ICON: Record<string, React.ReactNode> = {
@@ -48,8 +65,32 @@ export default async function HebergementDetailPage({ params }: { params: Promis
   const mapsUrl = stay.mapsUrl
     ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${stay.adresse} ${stay.zone} Algérie`)}`;
 
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  const pageUrl = locale === "ar"
+    ? `${base}/ar/hebergements/${stay.slug}`
+    : `${base}/hebergements/${stay.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    name: stay.nomFr,
+    description: stay.descriptionFr,
+    address: { "@type": "PostalAddress", streetAddress: stay.adresse, addressLocality: stay.zone, addressCountry: "DZ" },
+    ...(stay.telephone ? { telephone: stay.telephone } : {}),
+    ...(stay.email ? { email: stay.email } : {}),
+    ...(stay.siteWeb ? { url: stay.siteWeb } : {}),
+    ...(stay.tarifIndicatif != null ? { priceRange: `${stay.tarifIndicatif} DZD/nuit` } : {}),
+    ...(stay.image ? { image: stay.image } : {}),
+    ...(stay.latitude && stay.longitude ? { geo: { "@type": "GeoCoordinates", latitude: stay.latitude, longitude: stay.longitude } } : {}),
+    sameAs: pageUrl,
+  };
+  const jsonLdStr = JSON.stringify(jsonLd).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+
   return (
-    <div className="max-w-4xl mx-auto px-4 lg:px-6 py-10">
+    <>
+      {/* JSON-LD — safe: HTML chars escaped */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdStr }} />
+      <div className="max-w-4xl mx-auto px-4 lg:px-6 py-10">
       <Link
         href="/hebergements"
         className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)] mb-6"
@@ -183,5 +224,6 @@ export default async function HebergementDetailPage({ params }: { params: Promis
         <BookingStayForm stayId={stay.id} stayName={stay.nomFr} />
       </div>
     </div>
+    </>
   );
 }

@@ -5,7 +5,15 @@ import { ContactForm } from "@/components/forms/ContactForm";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });
-  return { title: `${t("contactTitle")} | Athlora`, description: t("siteDescription") };
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  return {
+    title: `${t("contactTitle")} | Athlora`,
+    description: t("siteDescription"),
+    alternates: {
+      canonical: `${locale === "ar" ? `${base}/ar` : base}/contact`,
+      languages: { fr: `${base}/contact`, ar: `${base}/ar/contact`, "x-default": `${base}/contact` },
+    },
+  };
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {

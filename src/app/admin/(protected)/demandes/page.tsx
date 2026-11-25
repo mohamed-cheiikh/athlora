@@ -75,7 +75,7 @@ export default async function AdminDemandesPage({ searchParams }: { searchParams
                 </div>
 
                 <div className="flex flex-col gap-2 text-xs">
-                  <p className="text-[var(--color-on-surface-variant)] text-right">{new Date(d.createdAt).toLocaleDateString("fr-DZ")}</p>
+                  <p className="text-[var(--color-on-surface-variant)] text-end">{new Date(d.createdAt).toLocaleDateString("fr-DZ")}</p>
                   <div className="flex gap-2">
                     {STATUTS.map((s) => (
                       <form key={s.value} action={updateStatutAction.bind(null, d.id, s.value as "en_attente" | "confirme" | "annule", undefined)}>

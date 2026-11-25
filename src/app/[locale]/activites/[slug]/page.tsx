@@ -12,7 +12,24 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const activity = await getActiviteBySlug(slug);
   if (!activity) return { title: "Activité introuvable" };
   const titre = locale === "ar" && activity.titreAr ? activity.titreAr : activity.titreFr;
-  return { title: `${titre} | Athlora` };
+  const description = locale === "ar" && activity.descriptionAr ? activity.descriptionAr : activity.descriptionFr;
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  const frUrl = `${base}/activites/${slug}`;
+  const arUrl = `${base}/ar/activites/${slug}`;
+  return {
+    title: `${titre} | Athlora`,
+    description: description.slice(0, 160),
+    openGraph: {
+      title: `${titre} | Athlora`,
+      description: description.slice(0, 160),
+      url: locale === "ar" ? arUrl : frUrl,
+      ...(activity.image ? { images: [{ url: activity.image, alt: titre }] } : {}),
+    },
+    alternates: {
+      canonical: locale === "ar" ? arUrl : frUrl,
+      languages: { fr: frUrl, ar: arUrl, "x-default": frUrl },
+    },
+  };
 }
 
 export default async function ActiviteDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {

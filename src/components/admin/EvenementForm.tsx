@@ -116,7 +116,7 @@ export function EvenementForm({ event, action, submitLabel }: Props) {
           type="file"
           name="image"
           accept="image/jpeg,image/png,image/webp"
-          className="text-sm text-[var(--color-on-surface-variant)] file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-[var(--color-secondary)] file:text-white file:font-bold file:text-xs hover:file:opacity-90"
+          className="text-sm text-[var(--color-on-surface-variant)] file:me-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-[var(--color-secondary)] file:text-white file:font-bold file:text-xs hover:file:opacity-90"
         />
       </Section>
 

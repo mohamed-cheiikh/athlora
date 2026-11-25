@@ -13,7 +13,24 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!event) return { title: "Événement introuvable" };
   const t = await getTranslations({ locale, namespace: "seo" });
   const titre = locale === "ar" && event.titreAr ? event.titreAr : event.titreFr;
-  return { title: `${titre} | Athlora`, description: t("siteDescription") };
+  const description = locale === "ar" && event.descriptionAr ? event.descriptionAr : event.descriptionFr;
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  const frUrl = `${base}/evenements/${slug}`;
+  const arUrl = `${base}/ar/evenements/${slug}`;
+  return {
+    title: `${titre} | Athlora`,
+    description: description.slice(0, 160),
+    openGraph: {
+      title: `${titre} | Athlora`,
+      description: description.slice(0, 160),
+      url: locale === "ar" ? arUrl : frUrl,
+      ...(event.image ? { images: [{ url: event.image, alt: titre }] } : {}),
+    },
+    alternates: {
+      canonical: locale === "ar" ? arUrl : frUrl,
+      languages: { fr: frUrl, ar: arUrl, "x-default": frUrl },
+    },
+  };
 }
 
 export default async function EvenementDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -50,8 +67,35 @@ export default async function EvenementDetailPage({ params }: { params: Promise<
   const mapsUrl = event.mapsUrl
     ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${lieu} ${event.zone} Algérie`)}`;
 
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  const pageUrl = locale === "ar"
+    ? `${base}/ar/evenements/${event.slug}`
+    : `${base}/evenements/${event.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.titreFr,
+    description: event.descriptionFr,
+    startDate: new Date(event.dateDebut).toISOString(),
+    ...(event.dateFin ? { endDate: new Date(event.dateFin).toISOString() } : {}),
+    location: {
+      "@type": "Place",
+      name: event.lieuFr,
+      address: { "@type": "PostalAddress", addressLocality: event.zone, addressCountry: "DZ" },
+    },
+    ...(event.prix != null ? { offers: { "@type": "Offer", price: event.prix, priceCurrency: "DZD" } } : {}),
+    ...(event.image ? { image: event.image } : {}),
+    url: pageUrl,
+  };
+
+  const jsonLdStr = JSON.stringify(jsonLd).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+
   return (
-    <div className="max-w-4xl mx-auto px-4 lg:px-6 py-10">
+    <>
+      {/* JSON-LD — safe: HTML chars escaped, no user HTML rendered */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdStr }} />
+      <div className="max-w-4xl mx-auto px-4 lg:px-6 py-10">
       {/* Back */}
       <Link
         href="/evenements"
@@ -192,6 +236,7 @@ export default async function EvenementDetailPage({ params }: { params: Promise<
         </div>
       )}
     </div>
+    </>
   );
 }
 

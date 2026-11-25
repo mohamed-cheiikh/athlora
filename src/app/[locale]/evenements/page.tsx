@@ -9,7 +9,19 @@ type SearchParams = { zone?: string; sportType?: string; period?: string; page?:
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });
-  return { title: `${t("eventsTitle")} | Athlora`, description: t("siteDescription") };
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
+  return {
+    title: `${t("eventsTitle")} | Athlora`,
+    description: t("siteDescription"),
+    alternates: {
+      canonical: `${locale === "ar" ? `${base}/ar` : base}/evenements`,
+      languages: {
+        fr: `${base}/evenements`,
+        ar: `${base}/ar/evenements`,
+        "x-default": `${base}/evenements`,
+      },
+    },
+  };
 }
 
 export default async function EvenementsPage({

@@ -13,9 +13,14 @@ import { Mountain, Heart, Users } from "lucide-react";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://athlora.com";
   return {
     title: t("siteTitle"),
     description: t("siteDescription"),
+    alternates: {
+      canonical: locale === "ar" ? `${base}/ar` : base,
+      languages: { fr: base, ar: `${base}/ar`, "x-default": base },
+    },
   };
 }
 
