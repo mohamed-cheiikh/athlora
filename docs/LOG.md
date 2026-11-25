@@ -93,3 +93,66 @@ Tâches prévues :
 ---
 
 _Sections suivantes ajoutées au fur et à mesure._
+
+---
+
+## PHASE 2 — Base de données ✅
+
+### [25/11/2026 — Session 2 (reprise)]
+
+#### ✅ Seed exécuté avec succès
+- 6 événements (Alger, Oran, Mostaganem), tous `publie=true`
+- 8 activités (sport + tourisme), tous `publie=true`
+- 6 hébergements (hôtels, auberges, motels), tous `publie=true`
+- Tables association + paramètresSite + 5 demandes + 3 messages
+- Corrigé : types Drizzle pour `DemandeReservationInsert` / `MessageContactInsert` + dates ISO
+
+#### ✅ Layer requêtes public créé
+- `src/lib/queries/evenements.ts` : `getEvenementsPublies`, `getEvenementBySlug`, `getEvenementsALaUne`
+- `src/lib/queries/activites.ts` : `getActivitesPubliees`, `getActiviteBySlug`, `getActivitesSport`, `getActivitesTourisme`
+- `src/lib/queries/hebergements.ts` : `getHebergementsPublies`, `getHebergementBySlug`, `getHebergementsAccueil`, `getHebergementsPourEvenement`, `getHebergementsPourActivite`
+- `src/lib/queries/parametres.ts` : `getParametre`, `getAllParametres`
+- `src/lib/queries/zones.ts` : `getZonesEvenements`, `getZonesActivites`, `getZonesHebergements`, `ZONES_V1`
+
+#### ✅ Layer requêtes admin créé
+- `src/lib/queries/admin/dashboard.ts` : `getDashboardStats`, `getRecentRequests`
+- `src/lib/queries/admin/evenements.ts` : CRUD complet + `togglePublish`
+- `src/lib/queries/admin/activites.ts` : CRUD complet + `togglePublish`
+- `src/lib/queries/admin/hebergements.ts` : CRUD complet + `togglePublish`
+- `src/lib/queries/admin/demandes.ts` : `getDemandesAdmin`, `updateStatutDemande`
+- `src/lib/queries/admin/messages.ts` : `getMessagesAdmin`, `markMessageLu`, `markAllMessagesLu`
+
+#### ✅ Script create-admin créé
+- `scripts/create-admin.ts` : `npm run admin:create <nom> <email> <mdp>`
+
+---
+
+## PHASE 3 — Pages publiques ✅
+
+### [25/11/2026 — Session 2 (suite)]
+
+#### ✅ Cartes (Server Components)
+- `src/components/cards/EventCard.tsx` : gradient sport, badges statut/aLaUne, date locale, prix/gratuit
+- `src/components/cards/ActivityCard.tsx` : gradient catégorie, sous-catégorie, durée
+- `src/components/cards/StayCard.tsx` : gradient type, commodités avec icônes, tarif/nuit
+
+#### ✅ Filtres (Client Components — URL search params)
+- `src/components/filters/EventFilters.tsx` : zone · sport · période (upcoming/past/all)
+- `src/components/filters/ActivityFilters.tsx` : zone · catégorie (sport/tourisme)
+- `src/components/filters/StayFilters.tsx` : zone · type d'hébergement
+
+#### ✅ Pages créées
+- `src/app/[locale]/page.tsx` — Accueil complet (hero, à la une, activités×2, hébergements, valeurs)
+- `src/app/[locale]/evenements/page.tsx` — Catalogue avec filtres et pagination
+- `src/app/[locale]/evenements/[slug]/page.tsx` — Détail + hébergements proches + Maps link
+- `src/app/[locale]/activites/page.tsx` — Catalogue avec onglets sport/tourisme
+- `src/app/[locale]/activites/[slug]/page.tsx` — Détail + organisateur + hébergements proches
+- `src/app/[locale]/hebergements/page.tsx` — Catalogue avec filtres
+- `src/app/[locale]/hebergements/[slug]/page.tsx` — Détail + commodités + Maps link
+- `src/app/[locale]/contact/page.tsx` — Infos contact + formulaire (UI désactivé Phase 4)
+
+#### ✅ Validations
+- `npm run typecheck` : 0 erreur
+- `npm run build` : 14 routes, 0 erreur
+- HTTP 200 sur toutes les routes (FR + AR) testées avec `curl`
+- `generateMetadata` sur chaque page (SEO ready)

@@ -1,6 +1,6 @@
 # Athlora — Rapport d'avancement
 
-**Projet :** Plateforme bilingue FR/AR — Tourisme sportif Mostaganem
+**Projet :** Plateforme bilingue FR/AR — Tourisme sportif Algérie (Alger · Oran · Mostaganem)
 **Stack :** Next.js 16.4.6 · Neon Postgres · Drizzle ORM · next-intl v4 · Tailwind v4
 **Dernière mise à jour :** 25/11/2026
 
@@ -10,11 +10,10 @@
 
 | Phase | Nom | Statut | % |
 |-------|-----|--------|---|
-| **0** | Préparation | ✅ Complété (sauf actions manuelles) | 80% |
-| 1 | Fondations (Next.js + FR/AR + Header/Footer) | ⏳ À faire | 0% |
-| 2 | Base de données (schéma + seed + requêtes) | ⏳ À faire | 0% |
-| 3a | Pages publiques — Accueil + Événements | ⏳ À faire | 0% |
-| 3b | Pages publiques — Activités + Hébergements + Contact | ⏳ À faire | 0% |
+| **0** | Préparation | ✅ Complété | 100% |
+| **1** | Fondations (Next.js + FR/AR + Header/Footer) | ✅ Complété | 100% |
+| **2** | Base de données (schéma + migration + seed + requêtes) | ✅ Complété | 100% |
+| **3** | Pages publiques (toutes les pages + composants) | ✅ Complété | 100% |
 | 4 | Formulaires (4 formulaires → DB + anti-spam) | ⏳ À faire | 0% |
 | 5a | Admin — Auth + Dashboard + CRUD Événements | ⏳ À faire | 0% |
 | 5b | Admin — CRUD Activités/Hébergements + Demandes + Paramètres | ⏳ À faire | 0% |
@@ -24,44 +23,58 @@
 
 ---
 
-## Phase 0 — Préparation ✅ (80%)
+## Phase 2 — Base de données ✅
 
-### ✅ Fait
-- **Environnement :** Node 26.7.0, npm 11.6, git 2.51 — tout opérationnel
-- **Écrans Stitch :** 4 screens avec code.html (Accueil, Événements, Activités, Hébergements) + tokens DESIGN.md
-- **CLAUDE.md** : toutes les règles Next.js 16 + RTL + sécurité + méthode
-- **.claude/settings.json** : permissions (allow/ask/deny)
-- **3 skills** : `stitch-convert`, `admin-crud`, `i18n-rtl-audit`
-- **2 agents** : `security-reviewer`, `rtl-reviewer`
-- **docs/PLAN.md** copié (référence complète)
-- **docs/LOG.md** + **docs/RAPPORT.md** créés et actifs
-- **.env.example** avec toutes les variables documentées
-- **Next.js 16.4.6** initialisé (React 19, Tailwind v4, TypeScript strict, Turbopack, App Router)
-- **package.json** : nom `athlora`, scripts complets (typecheck, db:*, admin:create)
-- **Git** : repo initialisé, 2 commits propres
+- **Schéma Drizzle** : 10 tables (usersAdmin, evenements, activites, hebergements, demandesReservations, messagesContact, hebergementsEvenements, hebergementsActivites, parametresSite, rateLimits) + 8 enums
+- **Migration** : `drizzle/0000_wild_inhumans.sql` appliquée sur Neon dev branch ✅
+- **Seed** : 6 événements + 8 activités + 6 hébergements + associations + paramètres + 5 demandes + 3 messages — toutes 3 villes
+- **Layer requêtes public** : `evenements.ts`, `activites.ts`, `hebergements.ts`, `parametres.ts`, `zones.ts`
+- **Layer requêtes admin** : `admin/dashboard.ts`, `admin/evenements.ts`, `admin/activites.ts`, `admin/hebergements.ts`, `admin/demandes.ts`, `admin/messages.ts`
+- **Script admin** : `scripts/create-admin.ts` (usage : `npm run admin:create <nom> <email> <mdp>`)
+- Build sans erreurs TypeScript ✅
 
-### ⏳ Actions manuelles restantes
-- [ ] **GitHub** — créer repo privé `athlora`, `git remote add origin <url>`, `git push -u origin master`
-- [ ] **Neon** — projet `athlora` région Frankfurt, branche `dev`, copier les 4 URLs dans `.env.local`
-- [ ] **Vercel** — décider plan Pro (obligatoire pour site client commercial)
-- [ ] **Google Cloud** — activer Maps Embed API, créer clé API restreinte
-- [ ] **MCP Neon** — `npx neon@latest init` dans le projet
-- [ ] **MCP next-devtools** — `claude mcp add next-devtools -- npx -y next-devtools-mcp@latest`
-- [ ] **Liste contenu client** — envoyer §13.1 du plan avec deadline (J+5 depuis maintenant)
+---
 
-### Écrans Stitch — Inventaire
-| Écran | Fichier | Statut |
-|-------|---------|--------|
-| Accueil | `athlora_plateforme_sport_aventure_mostaganem/code.html` | ✅ Disponible |
-| Événements (catalogue) | `athlora_v_nements_comp_titions_mostaganem/code.html` | ✅ Disponible |
-| Activités (catalogue) | `athlora_activit_s_outdoor_mostaganem/code.html` | ✅ Disponible |
-| Hébergements (catalogue) | `athlora_h_bergements_s_jours_sportifs_mostaganem/code.html` | ✅ Disponible |
-| Tokens design | `athletic_velocity_exploration/DESIGN.md` | ✅ Disponible |
-| Détail événement | — | ❌ Manquant → à dériver |
-| Détail activité | — | ❌ Manquant → à dériver |
-| Détail hébergement | — | ❌ Manquant → à dériver |
-| Contact | — | ❌ Manquant → à créer |
-| Admin | — | ❌ Manquant → shadcn/ui |
+## Phase 3 — Pages publiques ✅
+
+### Composants créés
+| Composant | Description |
+|-----------|-------------|
+| `src/components/cards/EventCard.tsx` | Carte événement (gradient sport, badges, date, lieu, prix) |
+| `src/components/cards/ActivityCard.tsx` | Carte activité (gradient catégorie, durée, prix) |
+| `src/components/cards/StayCard.tsx` | Carte hébergement (gradient type, commodités, prix/nuit) |
+| `src/components/filters/EventFilters.tsx` | Filtre client (zone, sport, période) |
+| `src/components/filters/ActivityFilters.tsx` | Filtre client (zone, catégorie sport/tourisme) |
+| `src/components/filters/StayFilters.tsx` | Filtre client (zone, type d'hébergement) |
+
+### Pages créées
+| Route | Type | Description |
+|-------|------|-------------|
+| `/` | SSG | Accueil : hero + événements à la une + activités sport/tourisme + hébergements + valeurs |
+| `/evenements` | Dynamic | Catalogue événements avec filtres URL |
+| `/evenements/[slug]` | Dynamic | Détail événement + hébergements proches + lien Google Maps |
+| `/activites` | Dynamic | Catalogue activités avec onglets sport/tourisme |
+| `/activites/[slug]` | Dynamic | Détail activité + organisateur + hébergements proches |
+| `/hebergements` | Dynamic | Catalogue hébergements avec filtres |
+| `/hebergements/[slug]` | Dynamic | Détail hébergement + commodités + lien Google Maps |
+| `/contact` | SSG | Infos contact + formulaire (UI désactivé — Phase 4) |
+
+### Validations
+- `npm run typecheck` : 0 erreur ✅
+- `npm run build` : 14 routes compilées, 0 warning ✅
+- Toutes pages HTTP 200 (FR + AR) ✅
+- Slugs DB vérifiés (tous `publie=true`) ✅
+- RTL : classes logiques Tailwind utilisées (gap, px, py — pas de ml/mr/pl/pr) ✅
+- SEO : `generateMetadata` sur chaque page ✅
+- Google Maps : lien direct `https://www.google.com/maps/search/?api=1&query=…` (pas d'embed) ✅
+
+---
+
+## Phase 0 — Préparation ✅
+
+### Actions manuelles restantes
+- [ ] **GitHub** — `git push -u origin master` (réseau requis)
+- [ ] **Vercel** — importer le repo quand prêt pour la production
 
 ---
 
@@ -69,38 +82,23 @@
 
 | # | Décision | Valeur |
 |---|----------|--------|
-| Zone géographique | Mostaganem (détecté dans les noms des écrans Stitch) | ✅ |
+| Zone géographique | Algérie entière — V1 couvre : Alger, Oran, Mostaganem | ✅ |
 | Auth | Maison (jose + bcryptjs) | ✅ |
 | Stockage images | Vercel Blob | ✅ |
 | ORM | Drizzle + neon-http driver | ✅ |
 | Formulaires publics | Téléphone obligatoire, email facultatif (sauf Contact) | ✅ |
 | URLs FR | Sans préfixe (`/evenements`) — AR avec préfixe (`/ar/evenements`) | ✅ |
-| Descriptions | Texte brut (`whitespace-pre-line`), pas d'éditeur riche en V1 | ✅ |
-
-## Décisions en suspens
-
-| # | Question | Recommandation |
-|---|----------|---------------|
-| 1 | Vercel : Hobby ou Pro ? | **Pro obligatoire** (site client commercial) |
-| 2 | Domaine : `.com` ou `.dz` ? | `.com` (disponible immédiatement) |
-| 3 | Notifications admin : WhatsApp seul ou + Resend ? | WhatsApp dans l'admin + Resend si temps le permet |
+| Google Maps | Lien direct ouverture Google Maps, pas d'API ni d'embed | ✅ |
+| Filtrage | Par "ville" (zone) : Alger, Oran, Mostaganem | ✅ |
 
 ---
 
-## Problèmes ouverts
+## Prochaine étape : Phase 4 — Formulaires
 
-_Aucun pour l'instant._
+4 formulaires avec Server Actions :
+1. **EventRegistrationForm** — inscription événement (`/evenements/[slug]#inscription`)
+2. **BookingActivityForm** — réservation activité (`/activites/[slug]#reservation`)
+3. **BookingStayForm** — réservation hébergement (`/hebergements/[slug]#reservation`)
+4. **ContactForm** — formulaire contact (`/contact`)
 
----
-
-## Prochaine étape
-
-**Phase 1 — Fondations** : dès que GitHub + Neon + `.env.local` sont prêts.
-
-Actions Phase 1 :
-1. Installer toutes les dépendances
-2. Configurer next-intl + proxy.ts
-3. Créer l'arborescence complète
-4. Implémenter les layouts (avec lang/dir RTL)
-5. Header + Footer depuis Stitch
-6. Déployer sur Vercel (preview)
+Chaque formulaire : Zod validation · Honeypot anti-spam · Rate limiting (table `rate_limits`) · Insert DB

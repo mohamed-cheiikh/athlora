@@ -16,8 +16,8 @@
     "contactUs": "Contactez-nous"
   },
   "seo": {
-    "siteTitle": "Athlora — Tourisme sportif à Mostaganem",
-    "siteDescription": "Découvrez les événements sportifs, activités outdoor et hébergements à Mostaganem, Algérie.",
+    "siteTitle": "Athlora — Tourisme sportif en Algérie",
+    "siteDescription": "Découvrez les événements sportifs, activités outdoor et hébergements à travers l'Algérie.",
     "homeTitle": "Accueil",
     "eventsTitle": "Événements sportifs",
     "activitiesTitle": "Activités outdoor",
@@ -25,8 +25,8 @@
     "contactTitle": "Contact"
   },
   "home": {
-    "heroTitle": "Tourisme sportif à Mostaganem",
-    "heroSubtitle": "Événements, activités outdoor et hébergements au cœur de l'Algérie",
+    "heroTitle": "Tourisme sportif en Algérie",
+    "heroSubtitle": "Événements, activités outdoor et hébergements à travers tout le pays",
     "discoverEvents": "Découvrir les événements",
     "exploreActivities": "Explorer les activités",
     "featuredEvents": "Événements à la une",
@@ -67,12 +67,12 @@
   },
   "events": {
     "title": "Événements sportifs",
-    "subtitle": "Compétitions, trails, courses et bien plus à Mostaganem",
+    "subtitle": "Compétitions, trails, courses et bien plus à travers l'Algérie",
     "filterSport": "Type de sport",
-    "filterZone": "Zone",
+    "filterZone": "Ville",
     "filterPeriod": "Période",
     "allSports": "Tous les sports",
-    "allZones": "Toutes les zones",
+    "allZones": "Toutes les villes",
     "upcoming": "À venir",
     "past": "Passés",
     "all": "Tous",
@@ -89,7 +89,7 @@
   },
   "activities": {
     "title": "Activités outdoor",
-    "subtitle": "Sport et tourisme au cœur de la nature algérienne",
+    "subtitle": "Sport et tourisme au cœur de la nature algérienne — Alger, Oran, Mostaganem",
     "sport": "Activités sportives",
     "tourism": "Activités touristiques",
     "duration": "Durée",
@@ -113,9 +113,9 @@
   },
   "stays": {
     "title": "Hébergements",
-    "subtitle": "Hôtels, auberges et motels à Mostaganem",
+    "subtitle": "Hôtels, auberges et motels partout en Algérie",
     "filterType": "Type",
-    "filterZone": "Zone",
+    "filterZone": "Ville",
     "allTypes": "Tous les types",
     "hotel": "Hôtel",
     "auberge": "Auberge",

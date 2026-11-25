@@ -1,8 +1,10 @@
 # Athlora — instructions pour Claude Code
 
 ## Projet
-Plateforme bilingue FR/AR de tourisme sportif : évènements, activités (sport/tourisme), hébergements,
-formulaires de demande, back-office admin. Zone : Mostaganem, Algérie.
+Plateforme bilingue FR/AR de tourisme sportif pour toute l'Algérie : évènements, activités (sport/tourisme),
+hébergements, formulaires de demande, back-office admin.
+V1 (livrable PFE startup) : 3 villes — Alger, Oran, Mostaganem. Le filtre s'appelle "ville" (champ `zone` en BDD).
+Seed : données réelles pour ces 3 villes. L'admin peut ajouter n'importe quelle ville ensuite.
 Spécification complète : docs/PLAN.md — lis la section concernée avant chaque tâche.
 Avancement : docs/RAPPORT.md — mets-le à jour à la fin de chaque phase.
 Journal : docs/LOG.md — enregistre chaque action importante avec sa date.

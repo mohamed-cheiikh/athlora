@@ -87,7 +87,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin size={15} className="shrink-0 text-[var(--color-secondary)] mt-0.5" />
-                <span>Mostaganem, Algérie</span>
+                <span>Algérie</span>
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Footer() {
         {/* Barre de bas */}
         <div className="mt-[var(--spacing-space-xl)] pt-[var(--spacing-space-md)] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
           <span>© {new Date().getFullYear()} Athlora. {t("footer.rights")}.</span>
-          <span>Mostaganem • Algérie</span>
+          <span>Algérie — Alger • Oran • Mostaganem</span>
         </div>
       </div>
     </footer>

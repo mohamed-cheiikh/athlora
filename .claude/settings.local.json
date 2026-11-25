@@ -13,7 +13,22 @@
       "Bash(git commit *)",
       "Bash(npx create-next-app@latest . --typescript --eslint --tailwind --src-dir --app --turbopack --import-alias \"@/*\" --yes)",
       "Bash(git remote *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/evenements)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/activites)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/hebergements)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/contact)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/evenements/trail-des-falaises-de-mostaganem)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/activites/randonnee-corniche-mostaganem)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/hebergements/hotel-dahra-spa)",
+      "Bash(npx tsx *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/evenements/trail-des-falaises-mostaganem-2026)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/activites/randonnee-dahra-mostaganem)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/hebergements/hotel-dahra-mostaganem)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/ar)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/ar/evenements)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/ar/evenements/trail-des-falaises-mostaganem-2026)"
     ]
   }
 }

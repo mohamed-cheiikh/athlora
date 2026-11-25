@@ -38,7 +38,7 @@ export default function Header() {
             </div>
           </Link>
           <span className="hidden xl:inline-flex items-center px-[var(--spacing-space-xs)] py-0.5 rounded-full bg-orange-100 text-[var(--color-secondary)] border border-orange-200 text-[10px] font-extrabold uppercase tracking-wider ms-[var(--spacing-space-xs)]">
-            Mostaganem
+            Algérie
           </span>
         </div>
 
