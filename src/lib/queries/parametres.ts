@@ -11,3 +11,10 @@ export async function getAllParametres() {
   const rows = await db.select().from(parametresSite);
   return Object.fromEntries(rows.map((r) => [r.cle, r.valeur]));
 }
+
+export async function upsertParametre(cle: string, valeur: unknown) {
+  await db
+    .insert(parametresSite)
+    .values({ cle, valeur })
+    .onConflictDoUpdate({ target: parametresSite.cle, set: { valeur } });
+}
