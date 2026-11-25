@@ -1,0 +1,891 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-low": "#eff4ff",
+          "on-secondary-container": "#531900",
+          "background": "#f8f9ff",
+          "surface-variant": "#d3e4fe",
+          "surface": "#f8f9ff",
+          "on-error": "#ffffff",
+          "error-container": "#ffdad6",
+          "primary-container": "#0a1b3a",
+          "on-secondary-fixed": "#370e00",
+          "on-tertiary": "#ffffff",
+          "error": "#ba1a1a",
+          "on-tertiary-fixed": "#00174b",
+          "on-tertiary-container": "#4a7cff",
+          "primary-fixed": "#d9e2ff",
+          "tertiary-fixed": "#dbe1ff",
+          "surface-dim": "#cbdbf5",
+          "on-secondary": "#ffffff",
+          "secondary": "#ff5e00",
+          "inverse-on-surface": "#eaf1ff",
+          "inverse-surface": "#0a1b3a",
+          "surface-container-highest": "#d3e4fe",
+          "outline-variant": "#c5c6cf",
+          "on-background": "#0b1c30",
+          "on-secondary-fixed-variant": "#7f2b00",
+          "on-primary": "#ffffff",
+          "surface-container": "#e5eeff",
+          "tertiary-container": "#00184c",
+          "surface-container-high": "#dce9ff",
+          "secondary-fixed": "#ffdbce",
+          "inverse-primary": "#b7c6ee",
+          "on-primary-fixed-variant": "#384667",
+          "outline": "#75777f",
+          "secondary-fixed-dim": "#ffb599",
+          "on-error-container": "#93000a",
+          "tertiary-fixed-dim": "#b4c5ff",
+          "surface-container-lowest": "#ffffff",
+          "on-surface": "#0b1c30",
+          "surface-tint": "#4f5e81",
+          "surface-bright": "#f8f9ff",
+          "on-tertiary-fixed-variant": "#003ea8",
+          "tertiary": "#000108",
+          "on-primary-container": "#7584a8",
+          "secondary-container": "#ff5e00",
+          "primary-fixed-dim": "#b7c6ee",
+          "on-primary-fixed": "#0a1b3a",
+          "primary": "#0a1b3a",
+          "on-surface-variant": "#45464e"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter-sm": "1rem",
+          "space-sm": "0.5rem",
+          "space-lg": "1.5rem",
+          "gutter": "1.5rem",
+          "space-md": "1rem",
+          "space-xl": "2.5rem",
+          "space-xs": "0.25rem",
+          "margin-sm": "1rem",
+          "margin": "2rem"
+        },
+        "fontFamily": {
+          "body-sm": ["Plus Jakarta Sans"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "display-lg": ["Plus Jakarta Sans"],
+          "display-lg-mobile": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-xl": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "headline-xl-mobile": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "body-sm": ["14px", {lineHeight: "20px", letterSpacing: "0em", fontWeight: "400"}],
+          "headline-md": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700"}],
+          "headline-sm": ["20px", {lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "600"}],
+          "display-lg": ["56px", {lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800"}],
+          "display-lg-mobile": ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800"}],
+          "label-md": ["12px", {lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "700"}],
+          "headline-xl": ["40px", {lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800"}],
+          "body-lg": ["18px", {lineHeight: "28px", letterSpacing: "0em", fontWeight: "400"}],
+          "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "700"}],
+          "label-lg": ["14px", {lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700"}],
+          "label-sm": ["10px", {lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "800"}],
+          "body-md": ["16px", {lineHeight: "24px", letterSpacing: "0em", fontWeight: "400"}],
+          "headline-xl-mobile": ["28px", {lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700"}]
+        }
+      },
+    },
+  }
+</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(10,27,58,0.06)] border-b border-surface-container-high/60"><div class="h-20 w-full px-space-lg lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-2.5" data-path="accueil" href="#"><img alt="Athlora Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByoUj96TBdd0A6AHH4L10yQCUCyg47g6izFnpZFcDbYC87OdBreNL54ox5XZkoY26JJaZsfNdayQYZzI1gOtIiCL3-WOaFB0D6vXokN1Q-U4iVBtyi4K9kbQ4GeMxVuGSng4DpjIJd0a487tr5qjUcwzsDJyhonbMPtPjzVJgNH0BibdzkJrf5F8xjGVc85ABDBH5eo_ywqoo6khZ7agACMygehr7EV8TMfCYSmDzVv2GjUlR6tORX"><span class="sr-only">Athlora</span></a><span class="hidden xl:inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-white font-label-sm text-label-sm uppercase tracking-wider ml-space-xs font-bold shadow-sm">Mostaganem</span></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary text-on-primary font-label-lg rounded-xl"><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant transition-colors hover:text-primary" data-path="accueil" href="#">Accueil</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant transition-colors hover:text-primary" data-path="evenements" href="#">Événements</a><a class="px-space-md py-space-sm font-label-lg text-label-lg bg-primary text-on-primary rounded-xl" data-path="activites" href="#">Activités</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant transition-colors hover:text-primary" data-path="hebergements" href="#">Hébergements</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant transition-colors hover:text-primary" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-sm"><div class="flex items-center p-1 rounded-full bg-surface-container border-0"><button class="px-space-sm py-1 rounded-full font-label-sm text-label-sm bg-primary text-on-primary transition-all font-bold" type="button">FR</button><button class="px-space-sm py-1 rounded-full font-label-sm text-label-sm text-on-surface-variant transition-all hover:text-primary font-medium" type="button">عربي</button></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-primary text-on-primary font-label-lg text-label-lg transition-transform hover:scale-[1.01] hover:bg-primary-container" data-path="admin-connexion" href="#"><span class="material-symbols-outlined text-[18px] text-secondary">lock</span><span>Admin</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 text-on-primary ring-2 ring-secondary/20"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Coastal Ambient Atmosphere Layer -->
+<div class="relative w-full bg-surface-container-low overflow-hidden -mt-20 pt-20 border-b border-surface-container-high/50">
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-secondary/15 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<!-- Editorial Hero Showcase -->
+<section class="relative w-full max-w-[1440px] mx-auto px-space-lg lg:px-margin pt-space-xl pb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col max-w-3xl">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm uppercase tracking-wider font-extrabold shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              Saison 2025 • Côte Dahra
+            </span>
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">water</span>
+              Conditions maritimes idéales
+            </span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary tracking-tight font-extrabold mb-space-sm">
+            Activités Outdoor &amp; Loisirs d'Aventure
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Explorez le littoral sauvage, les criques secrètes et les forêts du Dahra toute l'année avec nos guides locaux certifiés. Équipement premium fourni, sécurité maritime normée et immersion côtière garantie.
+          </p>
+</div>
+<!-- Quick Live Meteorological Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md flex items-center gap-space-lg shrink-0 lg:mb-1 border border-surface-container-high/60">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">air</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm uppercase text-outline">Vent Cap Ivi</div>
+<div class="font-headline-sm text-headline-sm text-primary">14 kts <span class="font-label-md text-label-md text-secondary font-bold">NE</span></div>
+</div>
+</div>
+<div class="w-px h-10 bg-surface-variant"></div>
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">surfing</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm uppercase text-outline">Houle Salamandre</div>
+<div class="font-headline-sm text-headline-sm text-primary">0.8 m <span class="font-label-md text-label-md text-secondary font-bold">Calme</span></div>
+</div>
+</div>
+<div class="w-px h-10 bg-surface-variant"></div>
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">thermostat</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm uppercase text-outline">Mer / Air</div>
+<div class="font-headline-sm text-headline-sm text-primary">22° / 26°</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Interactive Filter Toolbar Floating Deck -->
+<section class="w-full bg-surface-container-lowest sticky top-20 z-40 shadow-sm border-b border-surface-container-high/80">
+<div class="max-w-[1440px] mx-auto px-space-lg lg:px-margin py-space-sm flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-md">
+<!-- Category Segments -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-1" id="category-selector"><button class="px-space-md py-2.5 rounded-full font-label-lg text-label-lg text-white shrink-0 transition-all shadow-sm active-cat-btn" data-cat="all" style="background-color: rgb(123, 27, 56);">
+          Toutes les aventures (8)
+        </button>
+<button class="px-space-md py-2.5 rounded-full font-label-lg text-label-lg bg-surface-container text-on-surface-variant hover:text-[#7B1B38] hover:bg-surface-container-high shrink-0 transition-all border border-transparent hover:border-[#7B1B38]/30" data-cat="sea">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#7B1B38]">kayaking</span>
+            Nautique &amp; Mer
+          </span>
+</button>
+<button class="px-space-md py-2.5 rounded-full font-label-lg text-label-lg bg-surface-container text-on-surface-variant hover:text-[#7B1B38] hover:bg-surface-container-high shrink-0 transition-all border border-transparent hover:border-[#7B1B38]/30" data-cat="land">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#7B1B38]">hiking</span>
+            Terre &amp; Montagne
+          </span>
+</button>
+<button class="px-space-md py-2.5 rounded-full font-label-lg text-label-lg bg-surface-container text-on-surface-variant hover:text-[#7B1B38] hover:bg-surface-container-high shrink-0 transition-all border border-transparent hover:border-[#7B1B38]/30" data-cat="air">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#7B1B38]">paragliding</span>
+            Aventure &amp; Plein Air
+          </span>
+</button></div>
+<!-- Fine Filters Dropdowns & Equipment Switch -->
+<div class="flex flex-wrap items-center gap-space-sm shrink-0">
+<!-- Durée Select -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-low text-primary font-label-md text-label-md pl-space-md pr-8 py-2.5 rounded-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary border border-surface-container-high" id="filter-duration" style="border-color: rgba(123, 27, 56, 0.4); box-shadow: rgba(123, 27, 56, 0.15) 0px 0px 0px 1px;">
+<option value="all">Durée : Toutes</option>
+<option value="short">Court (&lt; 2h30)</option>
+<option value="half">Demi-journée (3h - 5h)</option>
+<option value="full">Journée complète</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-outline">expand_more</span>
+</div>
+<!-- Niveau Select -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-low text-primary font-label-md text-label-md pl-space-md pr-8 py-2.5 rounded-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary border border-surface-container-high" id="filter-level" style="border-color: rgba(123, 27, 56, 0.4); box-shadow: rgba(123, 27, 56, 0.15) 0px 0px 0px 1px;">
+<option value="all">Niveau : Tous</option>
+<option value="facile">Débutant / Famille</option>
+<option value="modere">Modéré</option>
+<option value="sportif">Sportif / Exigeant</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-outline">expand_more</span>
+</div>
+<!-- Équipement Inclus Toggle -->
+<label class="flex items-center gap-2 bg-surface-container-low px-space-md py-2 rounded-xl cursor-pointer select-none transition-colors hover:bg-surface-container border border-surface-container-high" style="border-color: rgba(123, 27, 56, 0.4);">
+<input checked="" class="sr-only peer" id="toggle-equipment" type="checkbox">
+<div class="w-9 h-5 bg-surface-dim peer-checked:bg-secondary rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all relative" style="background-color: rgb(123, 27, 56);"></div>
+<span class="font-label-md text-label-md text-primary font-semibold">Équipement inclus</span>
+</label>
+<!-- View mode / Reset -->
+<button class="p-2.5 text-outline hover:text-secondary rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors border border-surface-container-high" id="btn-reset-filters" title="Réinitialiser filtres" style="border-color: rgba(123, 27, 56, 0.35); color: rgb(123, 27, 56);">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Activities Dynamic Grid -->
+<section class="w-full max-w-[1440px] mx-auto px-space-lg lg:px-margin py-space-xl">
+<div class="flex items-center justify-between mb-space-lg">
+<div class="flex items-baseline gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Expériences sélectionnées</h2>
+<span class="font-body-sm text-body-sm text-outline" id="activity-counter">Affichage de 6 expériences prêtes à vivre</span>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant font-medium">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+        Réservation instantanée confirmée en ligne
+      </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="activities-deck">
+<!-- Card 1: Kayak de Mer -->
+<article class="activity-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-surface-container-high/60" data-cat="sea" data-duration="half" data-level="modere">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Two vibrant yellow sea kayaks navigating turquoise coastal waters of Cap Ivi Mostaganem along towering ochre limestone sea cliffs with secluded sea caves illuminated by warm afternoon sunlight, crystal clear Mediterranean depth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk65w-PzdUbNgHDZZuNGbp_R2sXkIZGQOiow4RX_kMasAA8pVgAugRNnGn0A6ncuq729gcit_Q38jf2KEhfGtYbXr4ZnFYnjqmeNxQWULElFfIPEGImXXoagQ1h8seoWr5oz7HXe4pJJybXfQVbKvLxYY4R7KjkQ6x0hA8NY8RGop2FASRGxn2Re0A6SVwdWXw2LISX6v462mwqxf7N9gMYkPQ8JpbfzYLo8StyqQ">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-transparent to-black/20"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">water_lux</span> Cap Ivi
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm font-bold shadow-sm">
+              Équipement fourni
+            </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary hover:text-secondary transition-colors" title="Ajouter aux favoris">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span> 3h00
+            </div>
+<div class="flex items-center gap-1 text-on-primary font-label-sm text-label-sm bg-primary/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-[14px] text-secondary">signal_cellular_alt_2_bar</span> Niveau Modéré
+            </div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Nautique &amp; Côtier</span>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.9</span> <span class="text-outline">(64 avis)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Kayak de Mer &amp; Exploration des Grottes Marines
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Glissez sous les falaises préservées du Cap Ivi et pénétrez dans des failles sculptées par la mer. Pauses baignade dans des criques inaccessibles à pied.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm py-2 px-space-sm rounded-lg bg-surface-container-low border border-surface-container-high/60">
+<span class="material-symbols-outlined text-[20px] text-secondary">verified_user</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Guide côtier breveté d'État &amp; gilet néoprène inclus</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div>
+<div class="font-label-sm text-label-sm text-outline">Tarif par participant</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">3 200</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">DZD</span>
+</div>
+</div>
+<button class="px-space-md py-3 rounded-xl bg-secondary text-white font-label-lg text-label-lg font-bold flex items-center gap-1.5 transition-transform hover:scale-[1.02] hover:bg-[#e05300] shadow-sm">
+<span>Réserver</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2: Randonnée Crêtes du Dahra -->
+<article class="activity-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-surface-container-high/60" data-cat="land" data-duration="half" data-level="sportif">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Hikers in active technical gear walking along an elevated ridge line trail overlooking the turquoise Mediterranean Sea and the historic Cap Ivi lighthouse of Mostaganem, surrounded by fragrant pine and wild rosemary scrubs at golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2w3xENKZHn8JVObIInU_M3yfCwB7RkTNg_jZQEtDK1ZLCTxGTgSL0yCjemQ9aLdl9wfSxl0PL8gWpoPLEpVbHzySqYMc9I30d47pUyiX4YA8GleZ0zX51LIcHwBD_326SvbO0m4KglMES7GOHxUY0uqZRpFhaytv8vsm5PAVC3KL_n90kvXsUBRby1cespC_AXqfA9SN6cndj3iaKJeAqQhSCNgid326CdTJY930">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-transparent to-black/20"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">terrain</span> Crêtes Dahra
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm font-bold shadow-sm">
+              Bâtons fournis
+            </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary hover:text-secondary transition-colors" title="Ajouter aux favoris">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span> 4h30 • 12.5 km
+            </div>
+<div class="flex items-center gap-1 text-on-primary font-label-sm text-label-sm bg-primary/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-[14px] text-secondary">signal_cellular_alt</span> Niveau Sportif
+            </div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Trekking Côtier</span>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.95</span> <span class="text-outline">(112 avis)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Randonnée Panoramique Crêtes du Dahra &amp; Phare
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Ascension progressive à travers pinèdes maritimes et maquis odorant. Belvédère exceptionnel offrant une vue à 360° sur toute la courbe du littoral jusqu'à Arzew.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm py-2 px-space-sm rounded-lg bg-surface-container-low border border-surface-container-high/60">
+<span class="material-symbols-outlined text-[20px] text-secondary">nutrition</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Collation énergétique &amp; thé local inclus au sommet</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div>
+<div class="font-label-sm text-label-sm text-outline">Tarif par participant</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">2 400</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">DZD</span>
+</div>
+</div>
+<button class="px-space-md py-3 rounded-xl bg-secondary text-white font-label-lg text-label-lg font-bold flex items-center gap-1.5 transition-transform hover:scale-[1.02] hover:bg-[#e05300] shadow-sm">
+<span>Réserver</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Circuit VTT Enduro -->
+<article class="activity-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-surface-container-high/60" data-cat="land" data-duration="short" data-level="modere">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Mountain biker maneuvering technical sandy and pine needle singletrack overlooking the Mediterranean coast in Mostaganem Sablettes with protective helmet and modern enduro mountain bike, dynamic dust motion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDql1sKTX5W2ilRzYv3Nv6rWleJKLVgvsV910DtoUfD1yGQr0O36L26eml-hMjMenk742P9UDtcmSDRz-yDbfnUSztsQ6VOYFrIMrFmbkij0TQYlMd73_V6BJrOYpkPY5QzLCNCgGRkPjOR01JNd6WF1gRZBzHlvjUh1f4QT3vcXR8UC_l-lJ8mTAuHsa9fEZ-sdKFTSTA-sVEabSjC7TkfqbBoucn8_w_Ahta1fI0">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-transparent to-black/20"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">directions_bike</span> Dunes Sablettes
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm font-bold shadow-sm">
+              VTT &amp; Casque inclus
+            </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary hover:text-secondary transition-colors" title="Ajouter aux favoris">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span> 2h30 • 18 km
+            </div>
+<div class="flex items-center gap-1 text-on-primary font-label-sm text-label-sm bg-primary/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-[14px] text-secondary">signal_cellular_alt_2_bar</span> Niveau Modéré
+            </div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">VTT &amp; Cycles</span>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.8</span> <span class="text-outline">(47 avis)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Circuit VTT Enduro Piste des Sablettes &amp; Dunes
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Un itinéraire varié entre passages techniques sablonneux, portions rapides en forêt côtière et bordures de plage. Parfait pour les sensations de pilotage pur.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm py-2 px-space-sm rounded-lg bg-surface-container-low border border-surface-container-high/60">
+<span class="material-symbols-outlined text-[20px] text-secondary">pedal_bike</span>
+<span class="font-label-md text-label-md text-on-surface-variant">VTT tout suspendu aluminium récent + kit sécurité complet</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div>
+<div class="font-label-sm text-label-sm text-outline">Tarif par participant</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">3 500</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">DZD</span>
+</div>
+</div>
+<button class="px-space-md py-3 rounded-xl bg-secondary text-white font-label-lg text-label-lg font-bold flex items-center gap-1.5 transition-transform hover:scale-[1.02] hover:bg-[#e05300] shadow-sm">
+<span>Réserver</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 4: Snorkeling Récifs -->
+<article class="activity-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-surface-container-high/60" data-cat="sea" data-duration="short" data-level="facile">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Underwater view of a marine biologist instructor and a guest snorkeling over vibrant Mediterranean sea grass and rocky reefs near Cap Ivi Mostaganem, schools of silver bream fish and sunbeams piercing clear turquoise water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANiBQ6W33qtvnWXuTMze8AsW83E_jkZI0U5FZP5vTFE9AF_NJC9lcifqCT8QQj_Lo3uBnN_7nCFbIgGJsvxE3TqjSgxU9_KmYq47B_wmvh11jNFAQ7iqsy5VssBZd_AFteanioAeT9CyzTYFxIULajyyVbF3y5guk-VyYmCO1Xm49yL9-uORrIYgRuiIFwyvxPgiQnf7vvf9k59dymGMgGdvi9Rj5W7TMEz7NSuvE">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-transparent to-black/20"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">scuba_diving</span> Anse d'Ouréah
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm font-bold shadow-sm">
+              Palmes &amp; masque
+            </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary hover:text-secondary transition-colors" title="Ajouter aux favoris">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span> 2h00
+            </div>
+<div class="flex items-center gap-1 text-on-primary font-label-sm text-label-sm bg-primary/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-[14px] text-secondary">signal_cellular_alt_1_bar</span> Tout Public / Débutant
+            </div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Faune &amp; Flore Sous-Marine</span>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.88</span> <span class="text-outline">(89 avis)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Snorkeling &amp; Découverte des Récifs Sous-Marins
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Plongez dans les eaux calmes d'une crique abritée pour observer les prairies de posidonies, sars, poulpes et la biodiversité marine locale avec un guide naturaliste.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm py-2 px-space-sm rounded-lg bg-surface-container-low border border-surface-container-high/60">
+<span class="material-symbols-outlined text-[20px] text-secondary">water_drop</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Combinaison thermique courte + plaquette d'identification marine</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div>
+<div class="font-label-sm text-label-sm text-outline">Tarif par participant</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">2 800</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">DZD</span>
+</div>
+</div>
+<button class="px-space-md py-3 rounded-xl bg-secondary text-white font-label-lg text-label-lg font-bold flex items-center gap-1.5 transition-transform hover:scale-[1.02] hover:bg-[#e05300] shadow-sm">
+<span>Réserver</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 5: Balade Équestre Coucher de Soleil -->
+<article class="activity-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-surface-container-high/60" data-cat="land" data-duration="short" data-level="facile">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Two Barb horses galloping gently at the edge of the foaming surf along the vast golden sand beach of Sablettes Mostaganem at sunset, warm orange and pink sky reflecting on the wet sand shore" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeVUpLRzSfOqA8xX7LR1XtBR6PJO2f9OLwhwIfqIhfhbuP_MDasH8c3LCPRlXLA850A4lAiL0JpaD00WHw5vn9TjeX3tF-6maDhjsM4v1U4s3Z9SNPodqnPIzac2N_MBbG3omon7V2dHZPqxAcSetq65u8b9m8v-8xW7_i3D49bD_H-haBUrl4u86kI3bYM7BspwHsUmOJHlQHS9_ulf2oSwNk0SXU8QtteO904es">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-transparent to-black/20"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">explore</span> Plage Sablettes
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm font-bold shadow-sm">
+              Bombe fournie
+            </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary hover:text-secondary transition-colors" title="Ajouter aux favoris">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span> 2h00
+            </div>
+<div class="flex items-center gap-1 text-on-primary font-label-sm text-label-sm bg-primary/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-[14px] text-secondary">signal_cellular_alt_1_bar</span> Débutant &amp; Cavalier
+            </div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Équestre Méditerranéen</span>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">5.0</span> <span class="text-outline">(38 avis)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Randonnée Équestre Coucher de Soleil sur la Plage
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Chevauchez d'authentiques chevaux barbes et barbes-arabes au bord de l'eau. Une expérience poétique au rythme des marées lorsque le soleil plonge dans la Méditerranée.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm py-2 px-space-sm rounded-lg bg-surface-container-low border border-surface-container-high/60">
+<span class="material-symbols-outlined text-[20px] text-secondary">sentiment_satisfied</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Accompagnateur équestre diplômé + chevaux calmes et dressés</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div>
+<div class="font-label-sm text-label-sm text-outline">Tarif par participant</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">4 500</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">DZD</span>
+</div>
+</div>
+<button class="px-space-md py-3 rounded-xl bg-secondary text-white font-label-lg text-label-lg font-bold flex items-center gap-1.5 transition-transform hover:scale-[1.02] hover:bg-[#e05300] shadow-sm">
+<span>Réserver</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 6: Baptême Parapente Vol Côtier -->
+<article class="activity-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-surface-container-high/60" data-cat="air" data-duration="short" data-level="facile">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Tandem paraglider wing soaring high over the cliffs and curving shoreline of Mostaganem bay with Mediterranean blue sea below and green coastal hills under bright sunny Algerian sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqzsxHkAqwIeNm63tF783bEXGEtqSUojKlLOkjva-wPchqU5GWqXFG8E1qyDCclX8yeqHyB76iBhDZ-9YyuqAJ_0YGe0Rx4nGPhB9rB4ZCeTS0bjdZN5afktncSg0sBZOQv7Y9WIC-EEaJrkbst8VpgBPoKpc0MHOObHq7vtmD3EyfoRvJPdqYOZicBm5WMeDjC634MvT9FDemQm3974EoqmFxQN1LLwDvLBlSw_o">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-transparent to-black/20"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">flight</span> Golfe d'Arzew
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm font-bold shadow-sm">
+              Vidéo 4K offerte
+            </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-primary hover:text-secondary transition-colors" title="Ajouter aux favoris">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span> 1h15 (vol 20 min)
+            </div>
+<div class="flex items-center gap-1 text-on-primary font-label-sm text-label-sm bg-primary/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-[14px] text-secondary">accessibility_new</span> Aucun prérequis
+            </div>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Vol Libre &amp; Sensations</span>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.97</span> <span class="text-outline">(95 avis)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
+              Baptême de Parapente Vol Côtier au-dessus du Golfe
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Décollage en douceur depuis les falaises côtières. Profitez de la portance laminaire marine pour planer au-dessus des criques et atterrir délicatement sur le sable fin.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm py-2 px-space-sm rounded-lg bg-surface-container-low border border-surface-container-high/60">
+<span class="material-symbols-outlined text-[20px] text-secondary">videocam</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Moniteur tandem breveté d'État + carte SD vidéo GoPro 4K</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div>
+<div class="font-label-sm text-label-sm text-outline">Tarif par participant</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">6 800</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">DZD</span>
+</div>
+</div>
+<button class="px-space-md py-3 rounded-xl bg-secondary text-white font-label-lg text-label-lg font-bold flex items-center gap-1.5 transition-transform hover:scale-[1.02] hover:bg-[#e05300] shadow-sm">
+<span>Réserver</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Interactive Map Anchor & Geography Showcase -->
+<section class="w-full bg-surface-container-low py-space-xl border-y border-surface-container-high/60">
+<div class="max-w-[1440px] mx-auto px-space-lg lg:px-margin">
+<div class="flex flex-col lg:flex-row gap-space-xl items-center">
+<!-- Interactive Cartography Container -->
+<div class="w-full lg:w-7/12 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-extrabold">Territoire d'Aventure</span>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Nos 4 zones d'activités côtières</h3>
+</div>
+<span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm border border-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> 100% balisé &amp; surveillé
+            </span>
+</div>
+<div class="relative w-full h-[380px] rounded-xl overflow-hidden bg-cover bg-center shadow-md border border-surface-container-high/80" data-location="Cap Ivi Mostaganem Algerie" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0t-r9fy2rIU4OKKxAqEk7CjgB89C-Z-sh5_bJwJZHZ_9cAUXcum77IXyHk4KOBO9erBiMe-GbWeK_sqxthvpA8aH5w22y1Xg2e_vKiDmkAm-GFqSXVWZJUoEyMqEvYbCqPJaZuJFWxs032y2l5oExdp65UsSl1gYyoKc_A8LyiVHyEKBmODBQq8lGLZFfF_IsV8qUJAQ218TGB6chvGTwdrOG8NYSkYkSIWt7ZWU')">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent"></div>
+<!-- Pin 1: Cap Ivi -->
+<div class="absolute top-1/4 left-1/3 flex items-center gap-2 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform border border-primary/10">
+<span class="material-symbols-outlined text-[18px] text-secondary">kayaking</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Cap Ivi (Grottes)</span>
+</div>
+<!-- Pin 2: Salamandre -->
+<div class="absolute bottom-1/3 left-1/4 flex items-center gap-2 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform border border-primary/10">
+<span class="material-symbols-outlined text-[18px] text-secondary">scuba_diving</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Les Sablettes (Snorkeling)</span>
+</div>
+<!-- Pin 3: Dahra -->
+<div class="absolute top-1/3 right-1/4 flex items-center gap-2 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform border border-primary/10">
+<span class="material-symbols-outlined text-[18px] text-secondary">hiking</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Massif du Dahra</span>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md flex flex-wrap items-center justify-between gap-2 text-on-primary font-body-sm text-body-sm">
+<span>Coordonnées GPS base nautique : 35°56′N 0°05′E</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary font-bold hover:underline" href="#">
+                Télécharger les tracés GPX <span class="material-symbols-outlined text-[16px]">download</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Local Spot Quality Index -->
+<div class="w-full lg:w-5/12 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md border border-surface-container-high/60" style="border-top: 3px solid rgb(123, 27, 56); box-shadow: rgba(123, 27, 56, 0.08) 0px 4px 20px -2px;">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="color: rgb(123, 27, 56);">safety_check</span>
+              Garantie Sécurité Athlora
+            </h4>
+<ul class="flex flex-col gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">check_circle</span>
+<span>Matériel homologué CE renouvelé chaque 12 mois (gilets, casques, ailes et baudriers).</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">check_circle</span>
+<span>Liaison radio VHF permanente avec la capitainerie et la Protection Civile de Mostaganem.</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">check_circle</span>
+<span>Briefing sécurité obligatoire de 15 minutes avant chaque mise à l'eau ou envol.</span>
+</li>
+</ul>
+<!-- Inline SVG Infographic Chart: Safety & Experience Score -->
+<div class="pt-space-xs">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm font-bold text-primary">Indice de satisfaction des participants</span>
+<span class="font-label-sm text-label-sm font-extrabold text-secondary">98.4%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 98.4%"></div>
+</div>
+</div>
+</div>
+<div class="bg-primary p-space-md rounded-xl text-on-primary flex items-center gap-space-md shadow-md border border-primary-container" style="background-color: rgb(123, 27, 56); border-color: rgba(255, 255, 255, 0.15); box-shadow: rgba(123, 27, 56, 0.25) 0px 4px 20px -2px;">
+<div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px] text-secondary">phone_in_talk</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-outline-variant font-medium">Besoin d'un conseil météo en direct ?</div>
+<div class="font-headline-sm text-headline-sm font-bold text-white tracking-wide">+213 (0) 45 42 18 90</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Custom Adventure Pack & Team Building Banner -->
+<section class="w-full max-w-[1440px] mx-auto px-space-lg lg:px-margin py-space-xl">
+<div class="relative bg-primary rounded-xl p-space-lg lg:p-space-xl overflow-hidden shadow-xl border border-primary-container" style="background: linear-gradient(135deg, rgb(123, 27, 56) 0%, rgb(74, 13, 32) 50%, rgb(10, 27, 58) 100%); border-color: rgba(255, 255, 255, 0.15);">
+<div class="absolute right-0 top-0 bottom-0 w-1/3 bg-cover bg-center opacity-15 lg:opacity-25 pointer-events-none mix-blend-luminosity" data-alt="Corporate retreat and sports adventure team gathered by a beach campfire in Mostaganem with sea kayaks lined up on the shore at dusk" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGtQRKp6u2r26VKikTwVV0fSXR_lXLAWFo6boW6xlOrwsoX2syR4NOM0V0Bj6OaV3ACvzuxKxoMJ3NDCh8Y-hKDPJYOSLDj3QFOb1KmchFUaWAW2lyAskQChrFa7BTfFFbs8ozT2ZYYX_ukC9opsNZOGtqjIUJPmmU3vHWscRT0-UIFX8fZ3hyryDQAHKO8Z66pg5LOyfbdXdBgRulFA3TL5DqpFD0JwpIRJDPh2I')"></div>
+<div class="relative z-10 max-w-2xl flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm font-bold w-fit shadow-sm">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+          Groupes, CE &amp; Séjours Sportifs
+        </div>
+<h3 class="font-headline-xl text-headline-xl-mobile lg:text-headline-xl text-white font-extrabold tracking-tight">
+          Créez votre séjour sur mesure à Mostaganem
+        </h3>
+<p class="font-body-md text-body-md text-surface-variant leading-relaxed">
+          Vous organisez une sortie pour un club sportif, une association d'alpinisme, ou un séminaire de cohésion d'entreprise ? Nous combinons sorties maritimes, bivouacs écoresponsables sous les étoiles et ravitaillement terroir selon votre cahier des charges.
+        </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs font-label-md text-label-md text-white">
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-space-sm py-2 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-secondary text-[20px]">done</span> Logistique intégrée
+          </div>
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-space-sm py-2 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-secondary text-[20px]">done</span> Devis sous 24h
+          </div>
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-space-sm py-2 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-secondary text-[20px]">done</span> Tarifs dégressifs
+          </div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<button class="px-space-lg py-3.5 rounded-xl bg-secondary text-white font-label-lg text-label-lg font-bold transition-transform hover:scale-[1.01] hover:bg-[#e05300] shadow-md flex items-center gap-2">
+<span>Demander un devis sur mesure</span>
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+</button>
+<a class="font-label-lg text-label-lg text-white font-bold hover:text-secondary flex items-center gap-1 transition-colors" href="#">
+            Télécharger la brochure PDF <span class="material-symbols-outlined text-[18px]">download</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Certified Local Guides Spotlight -->
+<section class="w-full bg-surface-container-lowest py-space-xl border-t border-surface-container-high/60">
+<div class="max-w-[1440px] mx-auto px-space-lg lg:px-margin">
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-space-md mb-space-xl">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-extrabold">Les Experts du Dahra</span>
+<h3 class="font-headline-lg text-headline-lg text-primary font-extrabold tracking-tight">Vos moniteurs &amp; guides certifiés</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Originaires de Mostaganem, passionnés par la faune et rompus aux protocoles de sauvetage côtiers et montagnards.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Guide 1 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md border border-surface-container-high/70">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait of an experienced Mediterranean outdoor sea kayak guide wearing a high visibility water sports vest with short beard and sun protection cap smiling outdoors in Mostaganem sunny port" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAafzgs6ciNsmnjXCn-82_dOh7ZfzX_XTT2RCnV4UHaW3LIZbIGHUdToMZn8N23o79RFSvD2R7pAIveN91KXFogni5IE-p8CVLHbwGy57CH5tcV3XFueUvgSHzTxoOP7sUDNWjJJH_kPWlp1Tu1iYXZ4NYs7DWB8n-IUfzjX0fzKXBwsWRCqy_dRGgnMEKuWMoiRm17rZDF8Wr7Kh1XzVvUUKmpMRM2VhnYNXnXOA8">
+<div class="absolute bottom-2 left-2 px-2.5 py-1 rounded-full bg-primary text-white font-label-sm text-label-sm font-bold shadow-sm" style="background-color: rgb(123, 27, 56);">
+              Kayak &amp; Mer
+            </div>
+</div>
+<div>
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">Karim Benali</h4>
+<span class="font-label-sm text-label-sm text-secondary font-bold">12 ans d'exp.</span>
+</div>
+<p class="font-label-md text-label-md text-outline">Instructeur fédéral CK &amp; Sauveteur côtier</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Spécialiste de la cartographie sous-marine du Cap Ivi et des courants de la baie.
+            </p>
+</div>
+</div>
+<!-- Guide 2 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md border border-surface-container-high/70">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait of an adventurous female mountain trekking and trail guide in active sportswear with cap and backpack, smiling against the green slopes of the Dahra mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSQNeL92NzHP6CA0kTfWLSfDncOA1RXA6a1BcKEr9UehRHuPS43VA_H_eiab7aOoJ4yOF8QBNULhxnLspGr0NDOSqW7ym7UdCoDiYEDIhSS-gbXfUp_je7pztafkFbnlgDszLmjiTrYohnr9yETqZ0d42-irYL8Ch6Jeht3Ju2CAw9Gp3py-DiJ3VbCQiQKab6WCOomqCSbs0i1SJ2yvX-gejWJFVGKKf0XWsypfM">
+<div class="absolute bottom-2 left-2 px-2.5 py-1 rounded-full bg-primary text-white font-label-sm text-label-sm font-bold shadow-sm" style="background-color: rgb(123, 27, 56);">
+              Trek &amp; Flore Dahra
+            </div>
+</div>
+<div>
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">Yasmine Mansouri</h4>
+<span class="font-label-sm text-label-sm text-secondary font-bold">8 ans d'exp.</span>
+</div>
+<p class="font-label-md text-label-md text-outline">Accompagnatrice moyenne montagne &amp; Secouriste</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Incollable sur la pharmacopée côtière et l'ornithologie des zones humides de la Macta.
+            </p>
+</div>
+</div>
+<!-- Guide 3 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md border border-surface-container-high/70">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait of a licensed tandem paraglider pilot wearing a flight helmet and aviator sunglasses holding glider lines with the blue Mediterranean coastal sky in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_E_fXwNXYFhUZn5eeuiJ1HV-2KUDkJaLczcVcGkUGLIi03zkKrLKQ0CEfXUH8AemtYDrAbpiWrY8fp7ZSofxUcu0gKHr7a2bIwxkrSJP6TnR3pPBhslAItWn2rC43-BJk7fJmhZxkWaz7oh2zMXTTRNMAk0gM7pszbYBfP2-HGMnTaYXvp6s83MdrcRO9bbx01lr0V_8UglS9nDlvGCGi1Ady3DLvBFJ4j1IfQUc">
+<div class="absolute bottom-2 left-2 px-2.5 py-1 rounded-full bg-primary text-white font-label-sm text-label-sm font-bold shadow-sm" style="background-color: rgb(123, 27, 56);">
+              Vol Libre Parapente
+            </div>
+</div>
+<div>
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">Tarek Zerhouni</h4>
+<span class="font-label-sm text-label-sm text-secondary font-bold">15 ans d'exp.</span>
+</div>
+<p class="font-label-md text-label-md text-outline">Pilote Biplace FAI &amp; Météorologue aérologie</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Plus de 2 800 heures de vol au-dessus des falaises du littoral ouest algérien.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript Controller for Client-Side Filtering -->
+<script>
+    (function initActivityFilters() {
+      const catButtons = document.querySelectorAll('#category-selector button');
+      const durationSelect = document.getElementById('filter-duration');
+      const levelSelect = document.getElementById('filter-level');
+      const equipmentToggle = document.getElementById('toggle-equipment');
+      const resetBtn = document.getElementById('btn-reset-filters');
+      const cards = document.querySelectorAll('.activity-card');
+      const counter = document.getElementById('activity-counter');
+
+      let currentCat = 'all';
+
+      function applyFilters() {
+        let visibleCount = 0;
+        const durVal = durationSelect ? durationSelect.value : 'all';
+        const lvlVal = levelSelect ? levelSelect.value : 'all';
+
+        cards.forEach(card => {
+          const cardCat = card.getAttribute('data-cat');
+          const cardDur = card.getAttribute('data-duration');
+          const cardLvl = card.getAttribute('data-level');
+
+          const matchCat = (currentCat === 'all' || cardCat === currentCat);
+          const matchDur = (durVal === 'all' || cardDur === durVal);
+          const matchLvl = (lvlVal === 'all' || cardLvl === lvlVal);
+
+          if (matchCat && matchDur && matchLvl) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (counter) {
+          counter.textContent = visibleCount === 1 
+            ? 'Affichage de 1 expérience prête à vivre' 
+            : `Affichage de ${visibleCount} expériences prêtes à vivre`;
+        }
+      }
+
+      catButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          catButtons.forEach(b => {
+            b.classList.remove('bg-secondary', 'text-white', 'shadow-sm');
+            b.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+          btn.classList.add('bg-secondary', 'text-white', 'shadow-sm');
+          
+          currentCat = btn.getAttribute('data-cat') || 'all';
+          applyFilters();
+        });
+      });
+
+      if (durationSelect) durationSelect.addEventListener('change', applyFilters);
+      if (levelSelect) levelSelect.addEventListener('change', applyFilters);
+      if (equipmentToggle) equipmentToggle.addEventListener('change', applyFilters);
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          currentCat = 'all';
+          catButtons.forEach((b, i) => {
+            if (i === 0) {
+              b.classList.add('bg-secondary', 'text-white', 'shadow-sm');
+              b.classList.remove('bg-surface-container', 'text-on-surface-variant');
+            } else {
+              b.classList.remove('bg-secondary', 'text-white', 'shadow-sm');
+              b.classList.add('bg-surface-container', 'text-on-surface-variant');
+            }
+          });
+          if (durationSelect) durationSelect.value = 'all';
+          if (levelSelect) levelSelect.value = 'all';
+          if (equipmentToggle) equipmentToggle.checked = true;
+          applyFilters();
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-primary text-white pt-space-xl pb-space-lg border-t border-primary-container"><div class="w-full px-space-lg lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-xl pb-space-xl"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-2" href="#"><img alt="Athlora Logo" class="h-9 w-auto brightness-0 invert object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByoUj96TBdd0A6AHH4L10yQCUCyg47g6izFnpZFcDbYC87OdBreNL54ox5XZkoY26JJaZsfNdayQYZzI1gOtIiCL3-WOaFB0D6vXokN1Q-U4iVBtyi4K9kbQ4GeMxVuGSng4DpjIJd0a487tr5qjUcwzsDJyhonbMPtPjzVJgNH0BibdzkJrf5F8xjGVc85ABDBH5eo_ywqoo6khZ7agACMygehr7EV8TMfCYSmDzVv2GjUlR6tORX"><span class="sr-only">Athlora</span></a><span class="px-space-xs py-0.5 rounded-full bg-secondary text-white font-label-sm text-label-sm uppercase tracking-wider font-bold">Côte Dahra</span></div><p class="font-body-md text-body-md text-surface-variant max-w-sm">Plateforme officielle du tourisme sportif et d'aventure en plein air à Mostaganem. Des falaises du Cap Ivi aux dunes de la Macta, vivez des expériences maritimes et terrestres d'exception.</p><div class="flex items-center gap-space-sm"><a class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">public</span></a><a class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a><a class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">videocam</span></a></div></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><h3 class="font-headline-sm text-headline-sm text-white font-semibold">Découvrir</h3><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm"><a class="text-surface-variant hover:text-secondary transition-colors" data-path="activites" href="#">Kitesurf &amp; Planche</a></li><li class="font-body-sm text-body-sm"><a class="text-surface-variant hover:text-secondary transition-colors" data-path="activites" href="#">Plongée Sablettes</a></li><li class="font-body-sm text-body-sm"><a class="text-surface-variant hover:text-secondary transition-colors" data-path="activites" href="#">Trek Dunes Macta</a></li><li class="font-body-sm text-body-sm"><a class="text-surface-variant hover:text-secondary transition-colors" data-path="evenements" href="#">Marathon Côtier</a></li><li class="font-body-sm text-body-sm"><a class="text-surface-variant hover:text-secondary transition-colors" data-path="hebergements" href="#">Bivouacs &amp; Écolodges</a></li></ul></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h3 class="font-headline-sm text-headline-sm text-white font-semibold">Contact Mostaganem</h3><div class="flex flex-col gap-space-sm text-surface-variant font-body-sm text-body-sm"><div class="flex items-start gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px] shrink-0">location_on</span><span>Boulevard de la Salamandre, Front de Mer, 27000 Mostaganem, Algérie</span></div><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px] shrink-0">call</span><span>+213 (0) 45 42 18 90</span></div><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px] shrink-0">mail</span><span>aventures@athlora-mostaganem.dz</span></div><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px] shrink-0">wb_sunny</span><span>Conditions météo côtière en temps réel</span></div></div></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h3 class="font-headline-sm text-headline-sm text-white font-semibold">Aperçu Cartographique</h3><div class="relative w-full h-36 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex flex-col justify-between p-space-sm shadow-[0_4px_20px_-2px_rgba(15,23,42,0.04)]"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider px-space-xs py-0.5 rounded bg-surface-container-lowest text-primary font-bold">Spot Cap Ivi - Phare</span><span class="material-symbols-outlined text-secondary text-[18px]">explore</span></div><div class="flex items-end justify-between"><span class="font-label-md text-label-md text-surface-variant">Golfe d'Arzew - Macta</span><a class="font-label-sm text-label-sm text-secondary hover:underline flex items-center gap-0.5 font-bold" data-path="activites" href="#">Ouvrir carte <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div><div class="pt-space-md border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-space-sm text-surface-variant font-body-sm text-body-sm"><p>© 2025 Athlora Mostaganem. Tous droits réservés. Aventure et Préservation Côtière.</p><div class="flex items-center gap-space-md"><a class="hover:text-secondary transition-colors" href="#">Mentions Légales</a><a class="hover:text-secondary transition-colors" href="#">Charte Environnementale</a><a class="hover:text-secondary transition-colors" href="#">Sécurité Maritime</a></div></div></div></footer>
+
+</body></html>

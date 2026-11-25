@@ -10,7 +10,8 @@ Journal : docs/LOG.md — enregistre chaque action importante avec sa date.
 ## Stack
 Next.js 16 (App Router, TS strict, Turbopack) · Tailwind CSS v4 · shadcn/ui (admin) · lucide-react
 Neon Postgres + Drizzle ORM (driver neon-http, casing snake_case) · Zod · next-intl v4
-Auth maison : bcryptjs + jose (cookie httpOnly) · Vercel Blob (images) · Google Maps Embed API
+Auth maison : bcryptjs + jose (cookie httpOnly) · Vercel Blob (images)
+Pas de carte embarquée : lien direct Google Maps (https://www.google.com/maps/search/?api=1&query=lat,lng)
 
 ## Commandes
 npm run dev | lint | typecheck | build
