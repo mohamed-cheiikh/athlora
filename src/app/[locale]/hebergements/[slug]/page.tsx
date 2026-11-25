@@ -2,6 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { getHebergementBySlug } from "@/lib/queries/hebergements";
+import { BookingStayForm } from "@/components/forms/BookingStayForm";
 import { ChevronLeft, MapPin, Phone, Mail, Globe, ExternalLink, Wifi, Car, Waves, Utensils, Wind, Coffee, Dumbbell, Sparkles } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -171,6 +172,15 @@ export default async function HebergementDetailPage({ params }: { params: Promis
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Booking form */}
+      <div className="mt-10 rounded-2xl border border-[var(--color-outline-variant)] bg-[var(--color-surface)] p-6" id="reservation">
+        <h2 className="text-xl font-extrabold text-[var(--color-on-surface)] mb-6 flex items-center gap-3">
+          <div className="w-1 h-6 rounded-full bg-[var(--color-secondary)]" />
+          {t("stays.bookNow")}
+        </h2>
+        <BookingStayForm stayId={stay.id} stayName={stay.nomFr} />
       </div>
     </div>
   );

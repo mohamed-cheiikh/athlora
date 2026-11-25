@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { getEvenementBySlug } from "@/lib/queries/evenements";
 import { getHebergementsPourEvenement } from "@/lib/queries/hebergements";
 import { StayCard } from "@/components/cards/StayCard";
+import { EventRegistrationForm } from "@/components/forms/EventRegistrationForm";
 import { Calendar, MapPin, Users, ChevronLeft, ExternalLink } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -159,18 +160,22 @@ export default async function EvenementDetailPage({ params }: { params: Promise<
               <p className="text-2xl font-extrabold text-[var(--color-secondary)]">
                 {event.prix ? `${event.prix.toLocaleString()} DA` : t("common.free")}
               </p>
-              {isUpcoming && (
-                <a
-                  href="#inscription"
-                  className="mt-3 w-full inline-flex items-center justify-center px-4 py-3 rounded-xl bg-[var(--color-secondary)] text-white font-bold text-sm hover:opacity-90 transition-opacity"
-                >
-                  {t("events.registerNow")}
-                </a>
-              )}
+              {/* scrolled to by the register button above */}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Registration form */}
+      {isUpcoming && (
+        <div className="mt-10 rounded-2xl border border-[var(--color-outline-variant)] bg-[var(--color-surface)] p-6">
+          <h2 className="text-xl font-extrabold text-[var(--color-on-surface)] mb-6 flex items-center gap-3">
+            <div className="w-1 h-6 rounded-full bg-[var(--color-secondary)]" />
+            {t("events.registerNow")}
+          </h2>
+          <EventRegistrationForm eventId={event.id} eventTitle={event.titreFr} />
+        </div>
+      )}
 
       {/* Nearby stays */}
       {nearbyStays.length > 0 && (

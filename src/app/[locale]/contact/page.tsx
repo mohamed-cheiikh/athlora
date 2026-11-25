@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -58,53 +59,12 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           />
         </div>
 
-        {/* Form placeholder */}
-        <div className="rounded-2xl border border-[var(--color-outline-variant)] bg-[var(--color-surface-container-low)] p-6 flex flex-col gap-4">
-          <h2 className="text-lg font-extrabold text-[var(--color-on-surface)]">
+        {/* Contact form */}
+        <div className="rounded-2xl border border-[var(--color-outline-variant)] bg-[var(--color-surface-container-low)] p-6">
+          <h2 className="text-lg font-extrabold text-[var(--color-on-surface)] mb-5">
             {t("contact.title")}
           </h2>
-
-          <div className="flex flex-col gap-3">
-            <div>
-              <label className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-on-surface-variant)] block mb-1">
-                {t("forms.fullName")}
-              </label>
-              <input
-                type="text"
-                disabled
-                className="w-full px-4 py-2.5 rounded-xl border border-[var(--color-outline-variant)] bg-[var(--color-surface)] text-sm text-[var(--color-on-surface)] opacity-50 cursor-not-allowed"
-              />
-            </div>
-            <div>
-              <label className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-on-surface-variant)] block mb-1">
-                {t("forms.email")}
-              </label>
-              <input
-                type="email"
-                disabled
-                className="w-full px-4 py-2.5 rounded-xl border border-[var(--color-outline-variant)] bg-[var(--color-surface)] text-sm text-[var(--color-on-surface)] opacity-50 cursor-not-allowed"
-              />
-            </div>
-            <div>
-              <label className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-on-surface-variant)] block mb-1">
-                {t("forms.message")}
-              </label>
-              <textarea
-                rows={4}
-                disabled
-                className="w-full px-4 py-2.5 rounded-xl border border-[var(--color-outline-variant)] bg-[var(--color-surface)] text-sm text-[var(--color-on-surface)] opacity-50 cursor-not-allowed resize-none"
-              />
-            </div>
-            <button
-              disabled
-              className="w-full px-4 py-3 rounded-xl bg-[var(--color-secondary)] text-white font-bold text-sm opacity-50 cursor-not-allowed"
-            >
-              {t("forms.submitContact")}
-            </button>
-            <p className="text-center text-xs text-[var(--color-on-surface-variant)]">
-              Formulaire en cours d&apos;activation
-            </p>
-          </div>
+          <ContactForm />
         </div>
       </div>
     </div>
